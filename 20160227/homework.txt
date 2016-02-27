@@ -1,0 +1,37 @@
+
+1. 理解this指针及其用法
+
+2. 理解static数据成员、static成员函数的用法
+
+3. 理解复制构造函数、赋值运算符重载函数
+
+4. 实现一个String类，保证main函数对正确执行
+
+class String
+{
+public:
+	String();
+	String(const char *pstr);
+	String(const String & rhs);
+	String & operator=(const String & rhs);
+	~String();
+
+	void print();
+
+private:
+	char *pStr_;
+};
+
+int main(void)
+{
+	String str1;
+	String str2 = "Hello,world";
+	String str3 = "wangdao";
+	str2 = str3;
+	String str4 = str3;
+
+	str1.print();
+	str2.print();
+	str3.print();
+	str4.print();
+}

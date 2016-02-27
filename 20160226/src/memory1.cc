@@ -8,17 +8,18 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-int a = 0;
-char * p1;
+int a = 0; //全局/静态区
+char * p1; //全局/静态区
 
 int main(void)
 {
-	int b;
-	char s[] = "123456";
-	char * p2;
-	char * p3 = "123456";
-	static int c = 0;
-	p1 = new char[10];
+	int b; //栈
+	char s[] = "123456";//栈
+	char * p2;//栈
+	char * p3 = "123456";//p3 在栈上，“123456”在常量区
+
+	static int c = 0; //全局区，静态区
+	p1 = new char[10];//p1在全局区，申请的空间在堆区
 	strcpy(p1, "123456");
 
 	printf("&a = %x\n", &a);
@@ -29,6 +30,6 @@ int main(void)
 	printf("&p2 = %x\n", &p2);
 	printf("&p3 = %x\n", &p3);
 	printf("p3 = %x\n", p3);
-	printf("c = %x\n", c);
+	printf("c = %x\n", &c);
 	return 0;
 }

@@ -1,0 +1,34 @@
+0. 当天所讲代码全部实现一遍
+
+1. 面向对象设计方法中的抽象与封装特性是如何在C++中体现的？
+通过类中的public，private可以控制对类中的方法，变量的访问，并且将类放在头文件，函数具体实现可以进行封装
+2. 当定义类时，编译器会为类自动生成哪些函数？
+   这些函数各自都有什么特点？
+	默认构造函数：在对象创建时自动调用，完成对象成员的初始化
+	析构函数：在对象撤销时自动调用，释放成员函数动态申请的内存
+3. 深拷贝与浅拷贝？
+	
+　　浅拷贝就比如像引用类型，而深拷贝就比如值类型。
+　　浅拷贝是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。
+　　深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。
+
+4. 创建文件student.h，并在文件中声明类
+#include <iostream>
+using std::cout;
+usint std::endl;
+
+class student
+{
+public:
+	setinfo(char * name, char * sex, flaot height, float weight);
+	getinfo(char * name, char * sex, flaot height, float weight)
+private：
+	char _name[20];
+	char _sex[3];
+	flaot _height;
+	float _weight;
+};
+5. 定义一个类，类中分别有private、protected、public类型的成员数据和成员函数，
+   并在成员函数内部和类的外部测试各种成员数据和成员函数的可访问性。
+
+6. 预习类与对象的后部分内容
