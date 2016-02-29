@@ -1,4 +1,4 @@
- ///
+ //
  /// @file    Point1.cc
  /// @author  zzseven
  /// @date    2016-02-27 10:09:04
@@ -39,11 +39,14 @@ Point::Point(const Point & rhs)
 void Point::print()
 {
 	cout << "_ix = " << _ix << endl;
-	cout << "_iy = " << _ix << endl;
+	cout << "_iy = " << _iy << endl;
 }
 
 int main(void)
 {
+	Point pt1(3, 4);
+	pt1.print();
 
+	return 0;
 }
 

@@ -1,11 +1,16 @@
 
 1. 理解this指针及其用法
+this指代当前对象，可以通过this->数据成员（成员函数）来获取数据，或者使用函数
 
 2. 理解static数据成员、static成员函数的用法
+static成员要在类外初始化，不然不可以使用；
+不管是数据成员还是成员函数，如果在public里可以通过类名来使用。
 
 3. 理解复制构造函数、赋值运算符重载函数
+复制构造函数传的是一个引用，它适用于对一个新的对象的初始化，赋值运算符重载用于对一个已经构造好初始化完成甚至使用过的对象进行修改值。赋值操作符重载比拷贝构造函数做得要多，它除了完成拷贝构造函数所完成的拷贝动态申请的内存的数据之外，还释放了被赋值对象申请的内存空间。
 
 4. 实现一个String类，保证main函数对正确执行
+
 
 class String
 {
@@ -13,7 +18,18 @@ public:
 	String();
 	String(const char *pstr);
 	String(const String & rhs);
-	String & operator=(const String & rhs);
+//	String & operator=(const String & rhs);
+	String & operator=(const String & rhs)
+	{
+		if(pStr_)
+		{
+			delete [] pStr_;
+		}
+		pStr_ = new char[strlen(rhs.pStr_)+1];
+		strcpy(pStr_, rhs.pStr_);
+		
+		return * this;
+	}
 	~String();
 
 	void print();
@@ -21,6 +37,48 @@ public:
 private:
 	char *pStr_;
 };
+
+
+/*********************/
+String::String()
+{
+	pStr_ = NULL;
+}
+
+String::String(const char * pStr)
+{
+	pStr_ = new char[strlen(pStr) + 1];
+	strcpy(pStr_, pStr);
+}
+
+String::String(const String & rhs)
+{
+	pStr_ = new char[strlen(rhs.pStr_)+1];
+	strcpy(pStr_, rhs.pStr_);
+}
+
+
+String::~String()
+{
+	if(pStr_)
+	{
+		delete [] pStr_;
+	}
+}
+
+void String::print()
+{
+	if(pStr_ == NULL)
+	{
+		cout << "NULL" << endl;
+	}else
+	{
+		cout << pStr_ << endl;
+	}
+
+}
+
+/*********************/
 
 int main(void)
 {

@@ -1,7 +1,7 @@
  ///
  /// @file    Computer.cc
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2016-02-27 10:59:22
+ /// @author  zzseven
+ /// @date    2016-02-28 12:03:46
  ///
  
 #include <iostream>
@@ -9,51 +9,58 @@
 using std::cout;
 using std::endl;
 
-
 class Computer
 {
 public:
 	Computer(float fprice);
 	~Computer();
-	void print() const;
+	//void print() const;
+	void print();
 private:
 	float _fprice;
 	static float _ftotalPrice;
-	//static Point _pt1;
+	void prints()
+	{
+		cout << "hello" << endl;
+	}
 };
 
-float Computer::_ftotalPrice = 0.0f;
 
+float Computer::_ftotalPrice = 0.0f; //静态变量要在外面初始化
+//没有初始化会编译不通过
 Computer::Computer(float fprice)
 : _fprice(fprice)
 {
 	cout << "Computer(float)" << endl;
-	_ftotalPrice += _fprice;	
+	_ftotalPrice += _fprice;
 }
+
 Computer::~Computer()
 {
 	_ftotalPrice -= _fprice;
 }
-void Computer::print(/*Computer * const this*/) const
+
+void Computer::print(/*computer * const this */) //const 
 {
-	//_fprice = 1000;//const成员函数不能修改对象的数据成员
+	//_fprice = 1000;
 	cout << "价格:" << this->_fprice << endl;
 	cout << "总价:" << _ftotalPrice << endl;
+	this->prints();
 }
 
 
 int main(void)
 {
-	Computer pc1(7000);
-	cout << "after buy pc1 " << endl;
+	Computer pc1(7001);
+	cout << "after buy pc1" << endl;
 	pc1.print();
-
-	Computer pc2(5000);
+	
+	Computer pc2(6000);
 	cout << "after buy pc2 " << endl;
 	pc2.print();
 
-
 	cout << "pc1的存储空间:" << sizeof(pc1) << endl;
-	cout << "Computer的存储空间:" << sizeof(Computer) << endl;
+	cout << "computer的存储空间:" << sizeof(Computer) << endl;
 
+	return 0;
 }
