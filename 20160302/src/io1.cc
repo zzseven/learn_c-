@@ -1,10 +1,11 @@
  ///
  /// @file    io2.cc
  /// @author  zzseven
- /// @date    2016-03-01 21:08:26
+ /// @date    2016-3-2 11:41:17
  ///
  
 #include <fstream>
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -15,6 +16,7 @@ using std::ifstream;
 using std::ofstream;
 using std::fstream;
 using std::string;
+using std::vector;
 
 int main(void)
 {
@@ -24,7 +26,7 @@ int main(void)
 		cout << "ifstream open error!" << endl;
 	}
 	
-	string s;
+	//string s;
 #if 0
 	while(ifs >> s)  //默认用空格分开
 	{
@@ -32,11 +34,21 @@ int main(void)
 	}
 #endif
 
-	while(getline(ifs, s)) //按行分割
+	vector<string> vec_str;
+	string line;
+	while(getline(ifs, line)) //按行分割
 	{
-		cout << s << endl;
+		//cout << line << endl;
+		vec_str.push_back(line);
 	}
-	//cout << "execute" << endl;
+
+	vector<string>::iterator sit = vec_str.begin();
+	for(; sit != vec_str.end(); ++ sit) //vec_str.end()末端的后一个
+	{
+		cout << *sit << endl;
+	}
+	ifs.close();
+
 
 	return 0;
 }

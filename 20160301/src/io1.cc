@@ -1,12 +1,12 @@
  ///
  /// @file    io1.cc
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2016-03-01 11:02:02
+ /// @author  zzseven
+ /// @date    2016-03-01 20:47:37
  ///
- 
+
+#include <limits>
 #include <iostream>
 #include <string>
-#include <limits>
 
 using std::cin;
 using std::cout;
@@ -14,13 +14,13 @@ using std::endl;
 
 void printCin()
 {
-	cout << "bad  = " << cin.bad() << endl;
+	cout << "bad = " << cin.bad() << endl;
 	cout << "fail = " << cin.fail() << endl;
-	cout << "eof  = " << cin.eof() << endl;
+	cout << "eof = " << cin.eof() << endl;
 	cout << "good = " << cin.good() << endl;
 }
 
-int test0(void)
+int test(void)
 {
 	printCin();
 
@@ -30,18 +30,16 @@ int test0(void)
 		cout << inum << endl;
 	}
 	printCin();
-
 	cin.clear();
 	cout << "重置流的状态" << endl;
+	
 	printCin();
 
-	//cin.ignore(1024,'\n');
-	cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-
+//	cin.ignore(1024,'\n');//清空缓冲区(最多跳过1024个字节，如果在之前遇到'\n'，则前面的不要了，从'\n'后读取数据。
+	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');	
 	std::string s;
-	cin >> s;
+	cin >> s; //标准输入流有个缓冲区.
 	cout << s << endl;
-
 
 	return 0;
 }
@@ -58,13 +56,14 @@ int main(void)
 		}
 		else if(cin.fail())
 		{
-			cout << "data illegal,please try again!" << endl;
+			cout << "data illegal, please try again!" << endl;
 			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');	
 			continue;
 		}
 		cout << "ival = " << ival << endl;
 	}
-	return 0;
-}
 
+	return 0;
+
+}
