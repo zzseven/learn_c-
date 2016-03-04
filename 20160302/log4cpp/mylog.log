@@ -1,0 +1,28 @@
+2016-03-04 20:27:50,443:FATAL mycat : system core dump{testmylog.cc-main_28}
+2016-03-04 20:27:50,444:ERROR mycat : system error{testmylog.cc-main_29}
+2016-03-04 20:27:50,444:INFO mycat : ststem info{testmylog.cc-main_30}
+2016-03-04 20:27:50,445:DEBUG mycat : system debug{testmylog.cc-main_31}
+2016-03-04 20:41:32,349: FATAL  mycat : system core dump { testmylog.cc_main_28 } 
+2016-03-04 20:41:32,350: ERROR  mycat : system error { testmylog.cc_main_29 } 
+2016-03-04 20:41:32,351: INFO   mycat : ststem info { testmylog.cc_main_30 } 
+2016-03-04 20:41:32,351: DEBUG  mycat : system debug { testmylog.cc_main_31 } 
+2016-03-04 20:41:38,454: FATAL  mycat : system core dump { testmylog.cc_main_28 } 
+2016-03-04 20:41:38,455: ERROR  mycat : system error { testmylog.cc_main_29 } 
+2016-03-04 20:41:38,456: INFO   mycat : ststem info { testmylog.cc_main_30 } 
+2016-03-04 20:41:38,456: DEBUG  mycat : system debug { testmylog.cc_main_31 } 
+2016-03-04 20:43:45,823: FATAL  mycat : system core dump { testmylog.cc_main_28 } 
+2016-03-04 20:43:45,824: ERROR  mycat : system error { testmylog.cc_main_29 } 
+2016-03-04 20:43:45,824: INFO   mycat : ststem info { testmylog.cc_main_30 } 
+2016-03-04 20:43:45,825: DEBUG  mycat : system debug { testmylog.cc_main_31 } 
+2016-03-04 20:46:59,270: FATAL  mycat : system core dump { testmylog.cc_main_28 } 
+2016-03-04 20:46:59,271: ERROR  mycat : system error { testmylog.cc_main_29 } 
+2016-03-04 20:46:59,272: INFO   mycat : ststem info { testmylog.cc_main_30 } 
+2016-03-04 20:46:59,273: DEBUG  mycat : system debug { testmylog.cc_main_31 } 
+2016-03-04 20:47:29,321: FATAL  mycat : system core dump { testmylog.cc_main_28 } 
+2016-03-04 20:47:29,321: ERROR  mycat : system error { testmylog.cc_main_29 } 
+2016-03-04 20:47:29,322: INFO   mycat : ststem info { testmylog.cc_main_30 } 
+2016-03-04 20:47:29,323: DEBUG  mycat : system debug { testmylog.cc_main_31 } 
+2016-03-04 20:50:55,575: FATAL mycat : system core dump { testmylog.cc_main_28 } 
+2016-03-04 20:50:55,577: ERROR mycat : system error { testmylog.cc_main_29 } 
+2016-03-04 20:50:55,577: INFO  mycat : ststem info { testmylog.cc_main_30 } 
+2016-03-04 20:50:55,577: DEBUG mycat : system debug { testmylog.cc_main_31 } 
