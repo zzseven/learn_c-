@@ -1,0 +1,158 @@
+
+
+第12期
+
+C++
+
+
+day 1  20160225
+	
+	1. namespace
+		- using namespace std;// using编译指令
+		- std::string s = ""; // 直接使用作用域限定符
+		- using std::cout;    // using声明机制
+	2. cout endl
+	3. new/delete  malloc/free   
+	4. const/reference
+		- const int a = 3;
+		- const int (const) * pa ; // pointer to const
+		- int * const pb; // const pointer
+		- const int * const pc; // 两者都不能进行修改
+		
+		- int a = 3; int & refa = a;//引用必须初始化
+		
+
+		const int & refb = 10;//常引用(literal字面值)
+		
+		- 引用作为函数参数 
+		- 引用作为函数返回值
+		
+	5. static_cast/const_cast
+	6. overload
+	
+	7. extern "C" {}
+	
+	8. default param
+	9. bool
+	10. const char */std::string  +, [], append(),size(), capacity(), substr(), c_str(), data()
+	
+	
+day 2 20160226
+
+	1. C++内存布局
+		栈区， 堆区， 全局/静态区， 文字常量区， 代码区
+		
+		char arr[] = "hellor,world";
+		char * pstr = "hello,world";
+	
+	2. 类和对象
+		- 类的定义
+			class Name
+			{};
+			
+			struct name
+			{};
+		- private/public/protected
+		- 类的实现-->成员函数的实现-> 类里面/类之外定义
+		- 构造函数:默认构造函数，有参构造函数，复制构造函数
+				Point pt1;
+				Point pt2 = pt1;
+				
+				Point pt3;
+				pt3 = pt2;
+				
+		- 析构函数:   ~类名()
+		- 赋值运算符函数
+			类都是自定义的类型，
+			int a = 3; int b = 4;  b = a;
+			Point pt1; Point pt2;  pt1 = pt2;
+			
+		- 成员初始化列表
+		
+day 3 20160227
+	0. 复习
+	1. 特殊的数据成员的初始化
+			静态数据成员: 必须要类之外进行初始化
+			const/引用数据成员：必须要在成员初始化列表
+			类对象成员：可以在成员初始化列表进行初始化，如果不显式
+									在初始化列表里面进行初始化，会自动调用默认构造函数
+									对类对象成员进行初始化
+	2. 特殊的成员函数
+			静态成员函数：
+				- 只能调用静态数据成员 -> 因为它的参数列表里面没有this指针
+				- 能够直接使用类名进行调用
+			const成员函数：
+			 	- 不能修改对象的数据成员
+	
+day 4 20160229
+	0. 复习
+	1. const对象 -> const成员函数
+			print()const;
+			print();
+	   非const对象 -> 如果类里面只提供了一个const的print函数
+	   								能够调用const的print函数 
+	   						 -> 如果提供了两个，调用非const的print函数
+	2. 单例模式
+		 a. 将构造函数放入private区域
+		 b. 提供一个静态的成员函数
+		 c. 定义一个静态的指向类对象的指针
+		 
+day 5 20160301
+	0. 复习
+	1. new/delete工作机制
+		new的三个步骤：
+		a. operator new
+		b. 调用构造函数
+		c. 返回一个指向堆对象的指针
+		delete表达式的两个步骤：
+		a. 调用析构函数
+		b. operator delete
+	2. 只能生成栈对象,不能生成堆对象
+		- 把operator new/operator delete函数的声明放入private区域
+	3. 只能生成堆对象,不能生成栈对象
+		- 把析构函数放入privae区域(不能直接使用delete销毁堆对象)
+		- 再定义一个public的成员函数destroy(), 
+			在它里面使用delete this,当调用destroy()函数的时候，就能
+			销毁该堆对象
+		
+	3. <iostream>
+	4. vector -> 存储空间是动态增长的
+	
+	(下午爬山)
+	
+day 6 20160302
+	0. 一节课做作业
+	1. 复习
+	2. <fstream>/<sstream>
+	3. log4cpp的安装及其使用
+	
+day 7 20160303
+	0. 复习
+	1. MutexLock, Condition
+	2. 词频统计
+	3. 友元, 运算符重载
+			friend -> 友元函数
+							　友元成员函数
+							　友元类
+		规则：1.　不能重载的运算符:(.  .*  ::  sizeof  ?:)
+					2. 不能臆造不存在的运算符
+					3. 优先级和结合性是固定的
+					4. 对于逻辑运算符进行重载后，不再具备短路求值特性
+						(不建议重载逻辑运算符)
+					5. 对于内置类型的运算符无法重载
+					6. 重载运算符函数的参数是一个类，或者枚举类型
+					
+		以成员函数：+= -= *= /=   ++ --
+			Complex & operator++();
+			Complex operator++(int);//int只是作为一个标记，表示这是后置++
+		以自由函数: + - * /
+		
+	
+day 8 20160304
+	0. 复习
+	1. Mylog　封装log4cpp
+	2. 必须以成员函数形式进行重载的运算符
+	3. 类型转换函数
+	4. 内部类(嵌套类)
+
+		
